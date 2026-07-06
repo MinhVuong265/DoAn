@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+
+  python:
+    build:
+      context: ./python
+    container_name: recruitment-python
+
+    ports:
+      - "5000:5000"
+
+  backend:
+    build:
+      context: ./recruitment-backend
+
+    container_name: recruitment-backend
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - python
+
+  frontend:
+    build:
+      context: ./recruitment-frontend
+
+    container_name: recruitment-frontend
+
+    ports:
+      - "5173:5173"
+
+    depends_on:
+      - backend

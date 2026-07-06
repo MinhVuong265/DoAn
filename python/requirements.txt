@@ -1,0 +1,2 @@
+Flask==3.0.3
+sentence-transformers==3.0.1
