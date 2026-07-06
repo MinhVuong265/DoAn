@@ -1,7 +1,24 @@
 # RecruitX - AI-Powered Recruitment Platform
 
 Nền tảng tuyển dụng thông minh sử dụng AI để giúp ứng viên tìm công việc phù hợp và nhà tuyển dụng tìm những ứng viên tốt nhất.
+# Clone project
+git clone <repo>
 
+# Python
+cd python
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
+
+# Backend
+cd ../recruitment-backend
+mvn spring-boot:run
+
+# Frontend
+cd ../recruitment-frontend
+npm install
+npm run dev
 ## Cấu Trúc Dự Án
 
 ```
