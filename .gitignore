@@ -104,4 +104,3 @@ target/
 __pycache__/
 uploads/
 
-recruitment-backend/src/main/resources/application.properties
