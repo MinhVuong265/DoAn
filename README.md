@@ -1,5 +1,60 @@
 # RecruitX - AI-Powered Recruitment Platform
+### Java 17 (Temurin)
 
+```bash
+winget install --id EclipseAdoptium.Temurin.17.JDK -e
+```
+
+Kiểm tra:
+
+```bash
+java -version
+javac -version
+```
+
+---
+
+### Maven
+
+```bash
+winget install --id Apache.Maven -e
+```
+
+Kiểm tra:
+
+```bash
+mvn -version
+```
+
+---
+
+### Python 3.11
+
+```bash
+winget install --id Python.Python.3.11 -e
+```
+
+Kiểm tra:
+
+```bash
+python --version
+pip --version
+```
+
+---
+
+### NodeJS LTS
+
+```bash
+winget install --id OpenJS.NodeJS.LTS -e
+```
+
+Kiểm tra:
+
+```bash
+node -v
+npm -v
+```
 Nền tảng tuyển dụng thông minh sử dụng AI để giúp ứng viên tìm công việc phù hợp và nhà tuyển dụng tìm những ứng viên tốt nhất.
 # Clone project
 git clone <repo>
