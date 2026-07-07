@@ -246,7 +246,7 @@ const JobDetailsEmployer = () => {
             <div className="space-y-4">
               {applications.map((app, idx) => {
                 // app là một bản ghi JobApplication chứa các thuộc tính: id, cv, aiMatchScore, status, appliedAt
-                const score = Number(app.matching_score || 0);
+                const score = Number(app.matchingscore || 0);
 
                 const colors = getScoreColor(score);
 
@@ -308,7 +308,7 @@ const JobDetailsEmployer = () => {
                         <div className={`h-1.5 rounded-full ${colors.bar}`} style={{ width: `${colors.value}%` }}></div>
                       </div>
                       <button 
-                        onClick={() => navigate(`/employer/cv/${app.cv_id}`)}
+                        onClick={() => navigate(`/employer/cv/${app.cvid}`)}
                         className="text-xs font-bold text-indigo-600 hover:text-indigo-700 hover:underline flex items-center gap-0.5"
                       >
                         Xem hồ sơ

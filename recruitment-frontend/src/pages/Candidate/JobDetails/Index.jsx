@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { MapPin, DollarSign, Building2, Calendar, Briefcase, Award, GraduationCap, ArrowLeft, Sparkles } from 'lucide-react';
 import axios from 'axios';
-
+import toast from "react-hot-toast";
 const JobDetails = () => {
   const { id } = useParams(); // Lấy ID bài đăng từ URL (ví dụ: /jobs/1)
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ const JobDetails = () => {
       const candidateId = Number(localStorage.getItem("userId"));
 
       if (!candidateId) {
-        alert("Vui lòng đăng nhập với tài khoản ứng viên.");
+        toast.error("Vui lòng đăng nhập với tài khoản ứng viên!");
         navigate("/login");
         return;
       }
@@ -55,17 +55,19 @@ const JobDetails = () => {
         }
       );
 
-      alert("Ứng tuyển thành công!");
+      toast.success("🎉 Ứng tuyển thành công!");
 
     } catch (err) {
 
       console.error(err);
 
-      if (err.response?.status === 409) {
-        alert("Bạn đã ứng tuyển công việc này.");
+      if (err.response?.status === 500) {
+        toast("Bạn đã ứng tuyển công việc này.", {
+          icon: "📄",
+        });
       }
       else {
-        alert("Ứng tuyển thất bại.");
+        toast.error("Ứng tuyển thất bại!");
       }
 
     } finally {
@@ -134,7 +136,7 @@ const JobDetails = () => {
             {/* Điểm Matching Score AI nếu có, mặc định là vùng phù hợp 85% */}
             <div className="px-3 py-1.5 bg-purple-50 text-purple-700 border border-purple-100 rounded-xl flex items-center gap-1.5 text-xs md:text-sm font-bold shadow-sm">
               <Sparkles className="w-4 h-4 text-purple-500 animate-pulse" />
-              Độ tương thích AI: {job.matchingScore || 85}%
+              Độ tương thích AI: {job.matchingscore || 85}%
             </div>
           </div>
 

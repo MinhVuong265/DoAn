@@ -30,17 +30,17 @@ const JobApplicantsList = ()=>{
           <div key={index} className="p-5 bg-gray-50/50 rounded-2xl border border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-indigo-200 transition-all">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-black text-gray-800">{app.fullName}</span>
+                <span className="text-sm font-black text-gray-800">{app.full_name}</span>
                 <span
                     className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
-                        app.matching_score >= 85
+                        app.matchingscore >= 85
                             ? "bg-emerald-100 text-emerald-700"
-                            : app.matching_score >= 70
+                            : app.matchingscore >= 70
                             ? "bg-blue-100 text-blue-700"
                             : "bg-amber-100 text-amber-700"
                     }`}
                 >
-                    AI Match: {Number(app.matching_score).toFixed(1)}%
+                    AI Match: {Number(app.matchingscore).toFixed(1)}%
                 </span>
               </div>
               <p className="text-xs text-gray-500 flex items-center gap-1"><Mail className="w-3.5 h-3.5" /> {app.email}</p>
@@ -52,7 +52,7 @@ const JobApplicantsList = ()=>{
 
             <div className="flex items-center gap-3 shrink-0">
             <button
-                onClick={() => navigate(`/employer/cv/${app.cvId}`)}
+                onClick={() => navigate(`/employer/cv/${app.cvid}`)}
                 className="px-4 py-2 bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 text-xs font-bold rounded-xl transition-all">
                 Xem chi tiết CV
             </button>

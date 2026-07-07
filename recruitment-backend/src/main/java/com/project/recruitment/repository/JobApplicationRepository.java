@@ -17,23 +17,19 @@ public interface JobApplicationRepository extends JpaRepository<JobApplication, 
     // Danh sách ứng viên của một Job
     @Query(value = """
     SELECT
-        ja.id AS application_id,
-        ja.status,
-        ja.matching_score,
-        ja.applied_at,
-
-        c.id AS cv_id,
-        c.full_name,
-        c.email,
-        c.skills
-
+        u.id,
+        u.full_name,
+        u.email,
+        cv.id AS cvId,
+        cv.skills,
+        cv.summary,
+        ja.matching_score AS matchingScore
     FROM job_applications ja
-
-    JOIN cvs c
-    ON ja.user_id = c.user_id
-
+    JOIN users u
+        ON ja.user_id = u.id
+    LEFT JOIN cvs cv
+        ON cv.user_id = u.id
     WHERE ja.job_id = :jobId
-
     ORDER BY
         ja.matching_score DESC,
         ja.applied_at ASC

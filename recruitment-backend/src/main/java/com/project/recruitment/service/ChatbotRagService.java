@@ -132,41 +132,7 @@ public class ChatbotRagService {
     }
     public String generateResponse(String userPrompt) {
         try {
-            // ==========================
-            // BƯỚC 1: Phân loại ý định
-            // ==========================
-            // String intentPrompt = """
-            //     Bạn là API phân loại ý định.
-            //     Hãy phân tích câu của người dùng.
-            //     CHỈ trả về JSON.
-            //     Không giải thích.
-            //     Không markdown.
-            //     Không dùng ```json.
-            //     Chỉ có đúng định dạng:
-            //     {
-            //     "intent":"JOB",
-            //     "cleanQuery":"java spring boot"
-            //     }
-            //     intent chỉ được phép là:
-            //     - JOB
-            //     - CV
-            //     - CHAT
-            //     Câu cần phân tích:
-            //     %s
-            //     """.formatted(userPrompt);
-            // // Gọi Gemini chỉ 1 lần
-            // String json = callGeminiApi(intentPrompt);
-            // // Làm sạch kết quả
-            // json = json.replace("```json", "")
-            //         .replace("```", "")
-            //         .trim();
-            // int start = json.indexOf("{");
-            // int end = json.lastIndexOf("}");
-            // if (start != -1 && end != -1) {
-            //     json = json.substring(start, end + 1);
-            // }
-            // System.out.println("Intent JSON: " + json);
-            // UserIntent userIntent = objectMapper.readValue(json, UserIntent.class);
+
             UserIntent userIntent = classifyIntent(userPrompt);
             // ==========================
             // BƯỚC 2: Sinh Embedding

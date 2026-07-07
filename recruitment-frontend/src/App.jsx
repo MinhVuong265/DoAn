@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-
+import { Toaster } from "react-hot-toast";
 //Inport Auth
 import Login from './pages/Auth/Login/Index';
 import Register from './pages/Auth/Register/Index';
@@ -42,7 +42,14 @@ function App() {
   };
 
   return (
+    <>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
+
     <Router>
+      
       <div className="relative min-h-screen bg-gray-50/50">
         
         {/* THANH ĐIỀU HƯỚNG PHÂN QUYỀN ĐỘNG (ROLES NAVBAR) */}
@@ -139,6 +146,7 @@ function App() {
         
       </div>
     </Router>
+    </>
   );
   const getHomeByRole = () => {
     if (!isLoggedIn) return "/";
